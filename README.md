@@ -6,7 +6,7 @@ All HF bands QRP CW transceiver
 * Two IF superheterodyne design
 * IF-derived AGC
 * Supports RIT, XIT and SHIFT
-* Electric keyer, 10-30 WPM + straight key mode
+* 10-30 WPM Elekey-B type keyer + straight key mode
 * Keyer settings are saved in EEPROM
 * 5W class C power amplifier
 * 9-pole low-pass filters
