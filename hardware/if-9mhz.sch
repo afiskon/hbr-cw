@@ -694,6 +694,6 @@ F 3 "~" H 6200 3750 50  0001 C CNN
 	1    6200 3750
 	-1   0    0    1   
 $EndComp
-Text Notes 5100 6400 0    50   ~ 0
-Xtals should be measured using G3UUR method,\nand suitable capacitors should be picked in LTspice.\nXtals should be matched by the resonant frequency.\n\nhttps://eax.me/crystal-measurements/\nhttps://eax.me/crystal-filters-part-4/
+Text Notes 5100 6800 0    50   ~ 0
+Xtals should be measured using G3UUR method,\nand suitable capacitors should be picked in LTspice.\nXtals should be matched by the resonant frequency.\n\nIt’s possible to use xtals for another frequency. Only\na slight change of the firmware is required in this case,\nand maybe a little adjustment of the AGC circuit.\nAnother number of xtals can be used as well.\n\nhttps://eax.me/crystal-measurements/\nhttps://eax.me/crystal-filters-part-4/
 $EndSCHEMATC
