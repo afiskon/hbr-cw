@@ -4,7 +4,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 8 10
-Title "HBR/CW by R2AUK ::: https://eax.me/hbr-cw-pcb/"
+Title "HBR/CW by R2AUK ::: https://github.com/afiskon/hbr-cw"
 Date "2022-04-02"
 Rev ""
 Comp ""
