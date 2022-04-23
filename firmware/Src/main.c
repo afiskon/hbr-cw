@@ -1066,11 +1066,11 @@ void loopMain() {
 void checkSpurMaskingInfoSorted() {
 	if(!isSpurMaskingInfoSorted()) {
 		LCD_Goto(0, 0);
-        LCD_SendString("  SORT  ");
-        LCD_Goto(1, 0);
-        LCD_SendString(" ORDER! ");
-        HAL_Delay(2000);
-        LCD_Clear();
+		LCD_SendString("  SORT  ");
+		LCD_Goto(1, 0);
+		LCD_SendString(" ORDER! ");
+		HAL_Delay(2000);
+		LCD_Clear();
 	}
 }
 
