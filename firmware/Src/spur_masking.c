@@ -272,10 +272,20 @@ static const SpurMaskInfo FreqsWithSpurs[] = {
 	{ 28060200, 50, 0 },
 }; 
 
+bool isSpurMaskingInfoSorted() {
+	int i;
+	for(i = 1; i < sizeof(FreqsWithSpurs)/sizeof(FreqsWithSpurs[0]); i++) {
+		if(FreqsWithSpurs[i].freq <= FreqsWithSpurs[i-1].freq)
+			return false;
+	}
+
+	return true;
+}
+
 const SpurMaskInfo* getSpurMaskingInfo(int32_t freq) {
 	// binary search
 	int left = 0;
-	int right = sizeof(FreqsWithSpurs)/sizeof(FreqsWithSpurs[0]);
+	int right = sizeof(FreqsWithSpurs)/sizeof(FreqsWithSpurs[0]) - 1;
 
 	while(left <= right) {
 		int current = (left + right) / 2;

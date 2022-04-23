@@ -1063,6 +1063,17 @@ void loopMain() {
     HAL_Delay(5);
 }
 
+void checkSpurMaskingInfoSorted() {
+	if(!isSpurMaskingInfoSorted()) {
+		LCD_Goto(0, 0);
+        LCD_SendString("  SORT  ");
+        LCD_Goto(1, 0);
+        LCD_SendString(" ORDER! ");
+        HAL_Delay(2000);
+        LCD_Clear();
+	}
+}
+
 void init() {
 /*
 	// Code for determining the correction factor for Si5351
@@ -1117,6 +1128,7 @@ void init() {
 	HAL_Delay(1000);
     LCD_Clear();
 
+    checkSpurMaskingInfoSorted();
     loadKeyerConfig();
 	displayVoltageOrMode(true);
 
