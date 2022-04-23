@@ -1,13 +1,15 @@
 #include "spur_masking.h"
 
-// Several spurs seem to be inevitable in a 2-IF homebrew receiver.
-// At least I didn't manage to get rid of them using filters or shields.
-// They can be easily masked though, by changing CLAR of SHIFT jist a bit.
-// It is worth noticing that I live in quite a noisy area and my power
-// supply is not particularly clean, so not all listed frequencies are
-// necessarily real spurs.
+// Spurs seem to be inevitable in a 2-IF homebrew receiver. At least I didn't
+// manage to get rid of them using filters or shields. They can be masked
+// though, by changing CLAR and/or SHIFT just a bit. It is worth noticing that
+// I live in a noisy area and my power supply is not particularly clean, so not
+// all listed frequencies are necessarily real spurs.
+
 // Also, consider tweaking IF2Frequency variable.
 
+// Keep the list sorted by frequency, otherwise getSpurMaskingInfo()
+// procedure will not work!
 static const SpurMaskInfo FreqsWithSpurs[] = {
 	// 80 meters
 	{ 3500200, 0, 10 },
@@ -15,16 +17,70 @@ static const SpurMaskInfo FreqsWithSpurs[] = {
 	{ 3501700, 50, 0 },
 	{ 3503700, 0, 10 },
 	{ 3503800, 0, 10 },
-	{ 3505900, 50, 0 },
+	{ 3504100, 0, 10 },
+	{ 3505500, 0, -10 },
+	{ 3505800, 0, -20 },
+	{ 3505900, 50, -20 },
+	{ 3506100, 0, -30 },
+	{ 3506200, 0, -30 },
+	{ 3506300, 0, -20 },
+	{ 3506400, 0, 20 },
+	{ 3506500, 0, 10 },
+	{ 3507900, 0, -10 },
+	{ 3510000, 0, -10 },
+	{ 3512400, 0, -10 },
+	{ 3513500, 50, 0 },
+	{ 3517700, -50, 0 },
+	{ 3520200, 0, -10 },
+	{ 3520700, 0, -10 },
+	{ 3521700, 0, 20 },
 	{ 3521800, 50, 0 },
+	{ 3522700, 0, -10 },
+	{ 3525100, 0, -10 },
+	{ 3526000, 0, -10 },
 	{ 3527300, 50, 0 },
 	{ 3527400, 50, 0 },
 	{ 3528300, 50, 0 },
+	{ 3530500, 0, -10 },
 	{ 3530900, 50, 0 },
+	{ 3533100, 0, -10 },
+	{ 3534700, 0, -30 },
+	{ 3534800, 0, -30 },
+	{ 3535200, 0, 20 },
+	{ 3535500, 0, 40 },
+	{ 3536000, 0, 10 },
+	// TODO: 3.537.4, 3.537.5
 	{ 3538500, 50, 0 },
+	{ 3538700, 0, -10 },
+	{ 3540600, 0, -10 },
 	{ 3541400, 50, 0 },
-	{ 3552100, 50, 0 },
-	{ 3565400, 50, 0 },
+	{ 3541900, 0, -10 },
+	{ 3543100, 0, -10 },
+	{ 3543900, 0, -10 },
+	{ 3544000, 0, -10 },
+	{ 3544100, 0, -10 },
+	{ 3544200, 0, -10 },
+	{ 3544300, 0, -10 },
+	{ 3544400, 0, -10 },
+	{ 3545100, 0, 10 },
+	{ 3545500, 0, 10 },
+	{ 3546700, 0, 10 },
+	{ 3547400, 0, 10 },
+	{ 3548500, 0, 10 },
+	{ 3548700, 0, -30 },
+	{ 3548900, 0, -30 },
+	{ 3550800, 0, 10 },
+	{ 3552100, 50, 10 },
+	{ 3565400, 50, 10 },
+	{ 3559200, 0, 20 },
+	{ 3559600, 0, 30 },
+	{ 3559700, 0, 30 },
+	{ 3560600, 0, -10 },
+	{ 3565700, 0, -10 },
+	{ 3566700, 0, -10 },
+	{ 3568200, 0, -10 },
+	{ 3568600, 0, -10 },
+	{ 3568900, 50, 0 },
 
 	// 40 meters
 	{ 7000800, 50, 0 },
@@ -172,7 +228,6 @@ static const SpurMaskInfo FreqsWithSpurs[] = {
 	{ 28059200, 50, 0 },
 	{ 28060200, 50, 0 },
 }; 
-
 
 const SpurMaskInfo* getSpurMaskingInfo(int32_t freq) {
 	// binary search
