@@ -53,6 +53,7 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 Src/main.c \
+Src/spur_masking.c \
 Src/system_stm32f1xx.c \
 Src/stm32f1xx_hal_msp.c \
 Src/stm32f1xx_it.c \
