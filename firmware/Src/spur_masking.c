@@ -295,8 +295,7 @@ static const SpurMaskInfo SpurMaskInfoArray[] = {
 	{ 10129900, 0, -10, false },
 	{ 10130000, 50, -40, false },
 
-	// 20 meters // TODO: recheck with heatphones and noise source @ -43 dBm 
-	// level with 30 dB attenuator from here
+	// 20 meters
 	{ 14000500, 0, 20, false },
 	{ 14000700, -50, 0, false },
 	{ 14001600, 50, 0, false },
