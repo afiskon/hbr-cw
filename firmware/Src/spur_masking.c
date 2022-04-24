@@ -446,7 +446,7 @@ static const SpurMaskInfo FreqsWithSpurs[] = {
 	{ 21028000, 0, -10, false },
 	{ 21028100, 0, -10, false },
 	{ 21032400, 0, -10, false },
-	{ 21033100, 0, -10, false },}
+	{ 21033100, 0, -10, false },
 	{ 21034900, 0, -10, false },
 	{ 21035000, 0, -10, false },
 	{ 21037400, 0, -10, false },
