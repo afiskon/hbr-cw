@@ -101,7 +101,10 @@ static void MX_TIM2_Init(void);
 
 // IF2 Frequency can be tweaked a bit to reach lower insertion
 // losses of the filter and/or to supress spurious signals
+
 const int32_t IF2Frequency = 45000000 - 10000 /* supress spurs */;
+// const int32_t IF2Frequency = 45000000 - 11500 /* supress spurs */;
+
 const int32_t XtalFilterCenterFrequency = 8998250;
 const int32_t si5351_correction = 6468;
 
