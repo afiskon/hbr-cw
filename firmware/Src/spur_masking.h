@@ -9,6 +9,7 @@ typedef struct {
 	int32_t freq;
 	int32_t clar;
 	int32_t shift;
+	bool useAlternativeIF2Frequency;
 } SpurMaskInfo;
 
 bool isSpurMaskingInfoSorted(int32_t* first_mismatch);
