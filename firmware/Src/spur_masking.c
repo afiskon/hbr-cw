@@ -4,13 +4,14 @@
 // manage to get rid of them using filters or shields. They can be masked
 // though, by changing CLAR and/or SHIFT just a bit. It is worth noticing that
 // I live in a noisy area and my power supply is not particularly clean, so not
-// all listed frequencies are necessarily real spurs.
+// all listed frequencies are necessarily real spurs. Also most of them are
+// barely hearable, but I decided to hide them anyway because I could.
 
 // Also, consider tweaking IF2Frequency variable.
 
 // Keep the list sorted by frequency, otherwise getSpurMaskingInfo()
 // procedure will not work!
-static const SpurMaskInfo FreqsWithSpurs[] = {
+static const SpurMaskInfo SpurMaskInfoArray[] = {
 	// 80 meters
 	{ 3500200, 0, 10, false },
 	{ 3501600, 50, 0, false },
@@ -496,9 +497,9 @@ static const SpurMaskInfo FreqsWithSpurs[] = {
 
 bool isSpurMaskingInfoSorted(int32_t* first_mismatch) {
 	int i;
-	for(i = 1; i < sizeof(FreqsWithSpurs)/sizeof(FreqsWithSpurs[0]); i++) {
-		if(FreqsWithSpurs[i].freq <= FreqsWithSpurs[i-1].freq) {
-			*first_mismatch = FreqsWithSpurs[i].freq;
+	for(i = 1; i < sizeof(SpurMaskInfoArray)/sizeof(SpurMaskInfoArray[0]); i++) {
+		if(SpurMaskInfoArray[i].freq <= SpurMaskInfoArray[i-1].freq) {
+			*first_mismatch = SpurMaskInfoArray[i].freq;
 			return false;
 		}
 	}
@@ -509,15 +510,15 @@ bool isSpurMaskingInfoSorted(int32_t* first_mismatch) {
 const SpurMaskInfo* getSpurMaskingInfo(int32_t freq) {
 	// binary search
 	int left = 0;
-	int right = sizeof(FreqsWithSpurs)/sizeof(FreqsWithSpurs[0]) - 1;
+	int right = sizeof(SpurMaskInfoArray)/sizeof(SpurMaskInfoArray[0]) - 1;
 
 	while(left <= right) {
 		int current = (left + right) / 2;
-		if(FreqsWithSpurs[current].freq == freq) {
-			return &FreqsWithSpurs[current];
+		if(SpurMaskInfoArray[current].freq == freq) {
+			return &SpurMaskInfoArray[current];
 		}
 
-		if(FreqsWithSpurs[current].freq > freq) {
+		if(SpurMaskInfoArray[current].freq > freq) {
 			right = current - 1;
 		} else {
 			left = current + 1;
