@@ -11,7 +11,7 @@ typedef struct {
 	int32_t shift;
 } SpurMaskInfo;
 
-bool isSpurMaskingInfoSorted();
+bool isSpurMaskingInfoSorted(int32_t* first_mismatch);
 const SpurMaskInfo* getSpurMaskingInfo(int32_t freq);
 
 #endif // _SPURS_MASKING_H_

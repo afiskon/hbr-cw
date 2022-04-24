@@ -1064,12 +1064,15 @@ void loopMain() {
 }
 
 void checkSpurMaskingInfoSorted() {
-	if(!isSpurMaskingInfoSorted()) {
+	char buff[16];
+	int32_t first_mismatch;
+	if(!isSpurMaskingInfoSorted(&first_mismatch)) {
+		snprintf(buff, sizeof(buff), "%08u", (unsigned int)first_mismatch);
 		LCD_Goto(0, 0);
-		LCD_SendString("  SORT  ");
+		LCD_SendString("SORT ERR");
 		LCD_Goto(1, 0);
-		LCD_SendString(" ORDER! ");
-		HAL_Delay(2000);
+		LCD_SendString(buff);
+		HAL_Delay(5000);
 		LCD_Clear();
 	}
 }
