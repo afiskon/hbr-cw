@@ -196,7 +196,7 @@ static const SpurMaskInfo SpurMaskInfoArray[] = {
 	{ 7034700, 0, 30, false },
 	{ 7034800, 0, 30, false },
 	{ 7034900, 0, 30, false },
-	{ 7035000, 0, 30, false },m
+	{ 7035000, 0, 30, false },
 	{ 7035900, 0, 10, false },
 	{ 7037200, 0, -30, false },
 	{ 7037300, 0, -90, false },
