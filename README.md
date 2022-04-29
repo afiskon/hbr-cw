@@ -3,7 +3,6 @@
 All HF bands QRP CW transceiver
 
 * Covers 80, 40, 30, 20, 17, 15, 12 and 10 meter bands
-* Two IF superheterodyne design
 * IF-derived AGC
 * Supports RIT, XIT and SHIFT
 * 10-30 WPM Elekey-B type keyer + straight key mode
