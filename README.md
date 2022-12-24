@@ -1,6 +1,6 @@
 # HBR/CW
 
-**Update**: The project has some issues with spurious signals. This problem was addressed in [HBR/3B](https://github.com/afiskon/hbr-3b).
+**Update**: The project has some issues with spurious signals. This problem was addressed in [HBR/3B](https://github.com/afiskon/hbr-3b) and [HBR/8B](https://github.com/afiskon/hbr-8b).
 
 All HF bands QRP CW transceiver
 
